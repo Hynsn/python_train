@@ -1,14 +1,18 @@
 pipeline{
     agent any
     stages{
-        stage("first"){
+        stage("Start"){
             steps {
                 echo 'hello world'
             }
         }
-        stage("run test"){
+        stage("Run"){
             steps {
-                echo 'run test'
+                echo 'run python'
+                script {
+                    sh 'python --version'
+                    sh 'python main.py'
+              }
             }
         }
     }
